@@ -5,6 +5,9 @@
         "type_traits": "cpp",
         "ostream": "cpp",
         "cstring": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "iomanip": "cpp",
+        "fstream": "cpp",
+        "iosfwd": "cpp"
     }
 }
