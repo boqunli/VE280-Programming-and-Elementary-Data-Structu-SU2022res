@@ -1,34 +1,38 @@
 #include <iostream>
+#include <time.h>
 
 using namespace std;
 
-int main(int argc, char const *argv[])
-{
-    const int max_size = 512;
-    char name[max_size];
-    // max_size = 128 ERROR
-    const int iVal = 10;
-    const int &rVal = iVal; 
-    const int &ref = 10; // OK
-    const int &ref = iVal + 10; // OK
-    // int &ref = 10; // ERROR
-    // int &ref = iVal+10; // ERRROR
+void fString(string &s){
+    return;
+}
 
-    int v = 0;
-    const int *pv = &v; // pointer to const
-    int* const cpv = &v; // const pointer, can only point to v
+void fStringConst(const string &s){
+    return;
+}
+
+int main(){
+    int i = 1;
+    // const can be bound to a non-const variable
+    const int &iConst = i;
+
+    // '\t' is the tabulation character
+    cout << "i= \t" << i << endl;
+    cout << "iConst= " << iConst << endl;
+
+    i = 2;
+
+    cout << "i= \t" << i << endl;
+    cout << "iConst= " << iConst << endl;
+
+    string s = "hello";
+    const string sConst = s;
+
+    fString(s);
+    fStringConst(s);
+
+    fString(sConst);
+    fStringConst(sConst);
 
     return 0;
-}
-
-void const_aug(const int& x) {
-    // x++; // ERROR
-}
-
-void prt(const string &str) {
-    cout << str << endl;
-}
-
-void test() {
-    prt("hello"); // OK
 }
